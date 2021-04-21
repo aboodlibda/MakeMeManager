@@ -47,7 +47,7 @@
                         <p class="lead">Login to your account</p>
                     </div>
                     <div class="form-group">
-                        <label for="email" class="control-label sr-only">Email</label>
+                        <label for="email" class="control-label">Email</label>
                         <input type="email" class="form-control round @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                         @error('email')
@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password" class="control-label sr-only">Password</label>
+                        <label for="password" class="control-label">Password</label>
                         <input id="password" type="password" class="form-control round @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                         @error('password')

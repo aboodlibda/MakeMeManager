@@ -20,7 +20,18 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'country',
+        'jop',
+        'gender',
+        'address',
+        'birthday',
+
     ];
+
+    public function projects ()
+    {
+        return $this->hasMany(Project::class);
+    }
 
     /**
      * The attributes that should be hidden for arrays.

@@ -3,7 +3,7 @@
 <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
 
 <title>Make Me Manager |@yield('title')</title>
-
+@yield('links')
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{asset('MMM/css/aos.css')}}">
     <link rel="stylesheet" href="{{asset('MMM/css/style_1.css')}}">
     <script src="{{ asset('js/app.js') }}" defer></script>
+
 
 
 
@@ -40,7 +41,7 @@
             <div class="site-navigation">
                 <a href="{{route('home')}}" class="logo m-0 float-start">Make Me Manager</a>
                 <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{route('home')}}">Home</a></li>
                     <li class="has-children">
                         <a href="properties.html">Properties</a>
                         <ul class="dropdown">
@@ -56,8 +57,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="{{route('projects.index')}}">Projects</a></li>
+                    <li><a href="{{route('about')}}">About</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                     @guest
                         @if (Route::has('login'))
@@ -68,27 +69,42 @@
                         @endif
                     @else
 
-                        <li class="nav-item dropdown">
 
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+
+                        <li class="has-children">
+
+                            <a  href="#" role="button">
                                 {{ Auth::user()->name }}
                             </a>
+                            <ul class="dropdown">
+                                <li><a href="{{route('profile',Auth::user()->id)}}">Profile</a></li>
+                                <li><a href="{{route('myProjects')}}">My Projects
+                                       &nbsp;&nbsp; <span class="badge btn-info">{{\Illuminate\Support\Facades\Auth::user()->projects->count()}}</span>
+                                    </a></li>
+                                <li><a href="#">settings</a></li>
+                                <li>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                                <a class="dropdown-item" href="#">Profile</a>
+                                        {{ __('Logout') }}
+                                    </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+
+                                </li>
+
+
+                            </ul>
+
+
                         </li>
+
                     @endguest
                 </ul>
+
                 <a href="#"
                    class="burger me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
                    data-toggle="collapse" data-target="#main-navbar">
@@ -185,6 +201,7 @@
         <span class="visually-hidden">Loading...</span>
     </div>
 </div>
+<script async src="{{asset('MMM/js/js_1.js')}}"></script>
 <script src="{{asset('MMM/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('MMM/js/tiny-slider.js')}}"></script>
 <script src="{{asset('MMM/js/aos.js')}}"></script>
@@ -192,7 +209,7 @@
 <script src="{{asset('MMM/js/counter.js')}}"></script>
 <script src="{{asset('MMM/js/custom.js')}}"></script>
 
-<script async src="{{asset('MMM/js/js_1.js')}}"></script>
+@yield('scripts')
 <script>
     window.dataLayer = window.dataLayer || [];
 

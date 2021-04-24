@@ -3,15 +3,16 @@
 @section('title')
     {{'Profile'}}
 @endsection
-<link rel="stylesheet" href="{{asset('dashboard/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
-<link rel="stylesheet" href="{{asset('dashboard/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
-<link rel="stylesheet" href="{{asset('dashboard/assets/vendor/animate-css/vivify.min.css')}}">
+@section('links')
+<link rel="stylesheet" href="{{asset('Dashboard/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('Dashboard/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{asset('Dashboard/assets/vendor/animate-css/vivify.min.css')}}">
 
-<link rel="stylesheet" href="{{asset('dashboard/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}">
+<link rel="stylesheet" href="{{asset('Dashboard/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}">
 
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="{{asset('assets/css/site.min.css')}}">
-
+@endsection
 @section('content')
 
 
@@ -43,14 +44,18 @@
                                             <input type="text" name="name" id="name" class="form-control" placeholder="Name" value="{{$user->name}}" disabled>
                                         </div>
                                     </div>
+
+
+
                                     <div class="col-lg-4 col-md-12">
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="icon-calendar"></i></span>
                                                 </div>
-                                                <input data-provide="datepicker" data-date-autoclose="true"
-                                                       class="inline-datepicker" placeholder="Birthdate" name="birthday" disabled>
+                                                <input data-provide="datepicker" name="birthday" data-date-autoclose="true"
+                                                       class="form-control" data-date-format="yyyy-mm-dd">
+
                                             </div>
                                         </div>
                                     </div>
@@ -58,8 +63,8 @@
                                         <div class="form-group">
                                             <select class="form-control" name="gender" id="gender" disabled>
                                                 <option value="">-- Select Gander --</option>
-                                                <option value="AF">Male</option>
-                                                <option value="AX">Female</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
                                             </select>
                                         </div>
                                     </div>
@@ -370,12 +375,12 @@
 
 
 
-
 @endsection
 
+@section('scripts')
+<script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script>
+<script src="{{asset('assets/bundles/vendorscripts.bundle.js')}}"></script>
 
-<script src="assets/bundles/libscripts.bundle.js"></script>
-<script src="assets/bundles/vendorscripts.bundle.js"></script>
-
-<script src="dashboard/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-<script src="assets/bundles/mainscripts.bundle.js"></script>
+<script src="{{asset('Dashboard/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{asset('assets/bundles/mainscripts.bundle.js')}}"></script>
+@endsection

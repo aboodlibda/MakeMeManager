@@ -3,6 +3,9 @@
     {{'Projects'}}
 @endsection
 
+@section('links')
+    <link href="{{asset('assets/plugins/notify/css/notifIt.css')}}" rel="stylesheet"/>
+@endsection
 @section('content')
 
 
@@ -10,7 +13,7 @@
         <div class="container">
             <div class="row justify-content-center align-items-center" >
                 <div class="col-lg-9 text-center mt-5">
-                    <h1 class="heading" data-aos="fade-up">Entrepreneur Projects</h1>
+                    <h1 class="heading" data-aos="fade-up">Projects</h1>
                     <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
                         <ol class="breadcrumb text-center justify-content-center">
                             <li class="breadcrumb-item "><a href="{{route('home')}}">Home</a></li>
@@ -23,6 +26,18 @@
     </div>
 
 
+    @if (session()->has('project_added'))
+        <script>
+            window.onload = function () {
+
+                notif({
+                    msg: "Project Added Successfully",
+                    type: "success"
+                });
+            }
+        </script>
+
+    @endif
 
     <div class="section section-4 border-top">
         <div class="container">
@@ -91,4 +106,9 @@
     </div>
 
 
+@endsection
+
+@section('scripts')
+    <script src="{{asset('assets/plugins/notify/js/notifIt.js')}}"></script>
+    <script src="{{asset('assets/plugins/notify/js/notifit-custom.js')}}"></script>
 @endsection

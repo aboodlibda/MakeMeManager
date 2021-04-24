@@ -3,6 +3,9 @@
     {{'My Projects'}}
 @endsection
 
+@section('links')
+    <link href="{{asset('assets/plugins/notify/css/notifIt.css')}}" rel="stylesheet"/>
+@endsection
 @section('content')
 
 
@@ -21,6 +24,18 @@
             </div>
         </div>
     </div>
+    @if (session()->has('project_updated'))
+        <script>
+            window.onload = function () {
+
+                notif({
+                    msg: "Project Updated Successfully",
+                    type: "success"
+                });
+            }
+        </script>
+
+    @endif
 
 
 
@@ -101,3 +116,8 @@
 
 
 @endsection
+
+@section('scripts')
+    <script src="{{asset('assets/plugins/notify/js/notifIt.js')}}"></script>
+    <script src="{{asset('assets/plugins/notify/js/notifit-custom.js')}}"></script>
+    @endsection

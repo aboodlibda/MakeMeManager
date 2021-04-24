@@ -50,7 +50,7 @@
                    </a>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
-                    <a href=""><div class="box-feature">
+                    <a href="{{route('entrepreneurs')}}"><div class="box-feature">
                             <span class="flaticon-building"></span>
                             <h3>Best Entrepreneurs</h3>
                         </div>

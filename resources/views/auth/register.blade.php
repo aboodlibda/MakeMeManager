@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-{{--    <meta name="description" content="Oculux Bootstrap 4x admin is super flexible, powerful, clean &amp; modern responsive admin dashboard with unlimited possibilities.">--}}
+{{--    <meta name="description" content="Oculux Bootstrap 4x admin is super flexible, powerful, clean &amp; modern responsive admin Dashboard with unlimited possibilities.">--}}
 {{--    <meta name="author" content="GetBootstrap, design by: puffintheme.com">--}}
 
-    <link rel="icon" href="{{asset('dashboard/assets/images/logo.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('Dashboard/assets/images/logo.png')}}" type="image/x-icon">
     <!-- VENDOR CSS -->
     <link rel="stylesheet" href="dashboard/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="dashboard/assets/vendor/font-awesome/css/font-awesome.min.css">
@@ -37,7 +37,7 @@
         <div class="card">
             <div class="body">
                 <div class="login-img">
-                    <img class="img-fluid" src="{{asset('dashboard/assets/images/logo.png')}}" />
+                    <img class="img-fluid" src="{{asset('Dashboard/assets/images/logo.png')}}" />
                 </div>
 
 

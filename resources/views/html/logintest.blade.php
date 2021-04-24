@@ -37,7 +37,7 @@
         <div class="card">
             <div class="body">
                 <div class="login-img">
-                    <img class="img-fluid" src="{{asset('dashboard/assets/images/logo.png')}}" />
+                    <img class="img-fluid" src="{{asset('CMS/assets/images/logo.png')}}" />
                 </div>
 
 

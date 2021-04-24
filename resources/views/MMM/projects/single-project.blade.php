@@ -26,7 +26,7 @@
     <div class="section">
         <div class="container">
             <div class="row justify-content-between">
-                <div class="col-lg-7">
+                <div class="col-lg-5">
                     <div class="img-property-slide-wrap">
 
                             <script type="text/javascript" style="display:none">
@@ -38,17 +38,37 @@
                             <img data-cfsrc="{{asset('Images/'.$projects->image)}}" alt="Image" class="img-fluid" style="display:none;visibility:hidden;"><noscript><img src="{{asset('Images/'.$projects->image)}}" alt="Image" class="img-fluid"></noscript>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <h2 class="heading text-primary">{{$projects->title}}</h2>
                     <p class="meta">{{$projects->country}}</p>
-                    <p>{{strip_tags( \Illuminate\Support\Str::words($projects->description))}}</p>
+                    <p>{!! $projects->description !!} </p>
+
+
+                     <div class="d-flex agent-box">
+
+                        <div class="text">
+                            <h5 class="heading text-primary">Project Card</h5>
+                            <hr><br>
+                            <h3 class="mb-0">Amount Requested For Financing : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{$projects->requested_financing}}</h3>
+                            <hr>
+                            <h3 class="mb-0">Campaign Financial Goal : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pa{{$projects->funding_goal}}</h3>
+                            <hr>
+                            <h3 class="mb-0">Financial Minimum : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$projects->minimum_amount}}</h3>
+                            <hr>
+                            <h3 class="mb-0">Duration of implementation : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$projects->duration}} Day</h3>
+
+{{--                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione laborum quo quos omnis sed magnam id ducimus saepe</p>--}}
+
+                        </div>
+                    </div>
+
                     <div class="d-flex agent-box">
                         <div class="img">
-                            <img data-cfsrc="images/person_2.jpg" alt="Image" class="img-fluid" style="display:none;visibility:hidden;"><noscript><img src="images/person_2.jpg" alt="Image" class="img-fluid"></noscript>
+                            <img data-cfsrc="{{asset('imageUsers/'.$projects->user->image)}}" alt="Image" class="img-fluid" style="display:none;visibility:hidden;"><noscript><img src="{{asset('imageUsers/'.$projects->user->image)}}" alt="Image" class="img-fluid"></noscript>
                         </div>
                         <div class="text">
-                            <h3 class="mb-0">{{Auth::user()->name}}</h3>
-                            <div class="meta mb-3">Real Estate</div>
+                            <h3 class="mb-0">{{$projects->user->name}}</h3>
+                            <div class="meta mb-3">{{$projects->user->country}}</div>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione laborum quo quos omnis sed magnam id ducimus saepe</p>
                             <ul class="list-unstyled social dark-hover d-flex">
                                 <li class="me-1"><a href="#"><span class="icon-instagram"></span></a></li>
@@ -58,6 +78,8 @@
                             </ul>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>

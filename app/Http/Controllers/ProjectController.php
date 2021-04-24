@@ -41,12 +41,13 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
 
+
         $request->validate([
             'title' => 'required|String|min:10',
             'category' => 'required:String',
             'requested_financing' => 'required|String|numeric',
             'country' => 'required|String',
-            'publication_date' => 'required|data',
+            'publication_date' => 'required',
             'minimum_amount' => 'required',
             'funding_goal' => 'required',
             'duration' => 'required|numeric',
@@ -80,6 +81,7 @@ class ProjectController extends Controller
         }
 
         $projects->save();
+        session()->flash('project_added');
         return redirect()->route('projects.index');
     }
 
@@ -129,11 +131,14 @@ class ProjectController extends Controller
         $project->duration=$request->get('duration');
         $project->description=$request->get('description');
         $project->link=$request->get('link');
-//        image Storing
-        $image = $request->file('image');
-        $imageName = $image->getClientOriginalName();
-        $request->image->move(public_path('Images/'), $imageName);
-        $project ->image=($imageName);
+        if ($request->hasFile('image')){
+
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $request->image->move(public_path('Images/'), $imageName);
+            $project ->image=($imageName);
+        }
+
         $rdio = $request->rdio;
         if ($rdio ==1){
             $project ->reward_description=$request->get('reward_description');
@@ -142,6 +147,7 @@ class ProjectController extends Controller
         }
 //        dd($project);
         $project->save();
+        session()->flash('project_updated');
         return redirect()->route('myProjects');
 
     }
@@ -168,12 +174,6 @@ class ProjectController extends Controller
     }
 
 
-
-    public function allProjects ()
-    {
-//        $projects = Project::all();
-//        return view('MMM.index',compact('projects'));
-    }
 
 
 }

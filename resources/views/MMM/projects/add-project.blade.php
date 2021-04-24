@@ -1,17 +1,15 @@
 {{--@extends('MMM.parent')--}}
-{{--@section('title')--}}
-{{--    {{'Add Project'}}--}}
-{{--@endsection--}}
+<title>Make Me Manager | New Project</title>
 <html>
 {{--@section('links')--}}
 <head>
 
-    <link rel="stylesheet" href="{{asset('dashboard/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('dashboard/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('dashboard/assets/vendor/animate-css/vivify.min.css')}}">
-    <link rel="stylesheet" href="{{asset('dashboard/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Dashboard/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Dashboard/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Dashboard/assets/vendor/animate-css/vivify.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Dashboard/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}">
 
-{{--    <link rel="stylesheet" href="{{asset('dashboard/assets/vendor/dropify/css/dropify.min.css')}}">--}}
+{{--    <link rel="stylesheet" href="{{asset('Dashboard/assets/vendor/dropify/css/dropify.min.css')}}">--}}
 
 {{--    <script defer src="node_modules/@fortawesome/fontawesome-free/js/brands.js"></script>--}}
 {{--    <script defer src="node_modules/@fortawesome/fontawesome-free/js/solid.js"></script>--}}
@@ -108,6 +106,8 @@
                 </div>
 
             </div>
+
+
             @if ($errors->any())
                 <div class="alert alert-danger" role="alert">
                     <ul>
@@ -454,7 +454,7 @@
 
                                         <!-- Uploaded image area-->
                                         <p class="font-italic text-white text-center">The image uploaded will be rendered inside the box below.</p>
-                                        <div class="image-area mt-2"><img id="imageResult" src="#" alt="" class="img-thumbnail rounded shadow-sm mx-sm-2"></div>
+                                        <div class="image-area mt-2"><img id="imageResult" src="#" alt="" class="img-thumbnail rounded shadow-sm mx-sm-2" style="height: 200px;width: 200px"></div>
 
                                     </div>
 
@@ -623,11 +623,11 @@
 
 
 {{--@section('scripts')--}}
-{{--    <script src="{{asset('dashboard/assets/vendor/dropify/js/dropify.min.js')}}"></script>--}}
+{{--    <script src="{{asset('Dashboard/assets/vendor/dropify/js/dropify.min.js')}}"></script>--}}
     <script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script>
     <script src="{{asset('assets/bundles/vendorscripts.bundle.js')}}"></script>
-    <script src="{{asset('dashboard/assets/vendor/jquery-validation/jquery.validate.js')}}"></script><!-- Jquery Validation Plugin Css -->
-    <script src="{{asset('dashboard/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{asset('Dashboard/assets/vendor/jquery-validation/jquery.validate.js')}}"></script><!-- Jquery Validation Plugin Css -->
+    <script src="{{asset('Dashboard/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/bundles/mainscripts.bundle.js')}}"></script>
     <script src="{{asset('assets/js/pages/forms/advanced-form-elements.js.js')}}"></script>
     <script src="{{asset('Dashboard/assets/vendor/ckeditor/ckeditor.js')}}"></script><!-- Ckeditor -->

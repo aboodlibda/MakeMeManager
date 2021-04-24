@@ -6,7 +6,7 @@
 @section('content')
 
 
-    <div class="hero page-inner">
+    <div class="hero page-inner" style="background-image: url('dashboard/assets/images/logo.png')">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-9 text-center mt-5">
@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row text-left mb-5">
                 <div class="col-lg-6">
-                    <h2 class="font-weight-bold heading text-primary mb-4">About Us</h2>
+                    <h2 class="font-weight-bold heading text-primary mb-4">Make Me Manager</h2>
                     <p class="text-black-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam enim pariatur
                         similique debitis vel nisi qui reprehenderit totam? Quod maiores.</p>
                 </div>
@@ -127,14 +127,16 @@
             </div>
             <div class="testimonial-slider-wrap">
                 <div class="testimonial-slider">
+
                     <div class="item">
                         <div class="testimonial">
-                            <img data-cfsrc="{{asset('MMM/images/person_1.jpg')}}" alt="Image" class="img-fluid rounded-circle w-25 mb-4"
+                            <img data-cfsrc="{{asset('MMM/images/dema.jpeg')}}" alt="Image" class="img-fluid rounded-circle w-25 mb-4"
                                  style="display:none;visibility:hidden;">
-                            <noscript><img src="{{asset('MMM/images/person_1.jpg')}}" alt="Image" class="img-fluid rounded-circle w-25 mb-4">
+                            <noscript><img src="{{asset('MMM/images/dema.jpeg')}}" alt="Image" class="img-fluid rounded-circle w-25 mb-4">
                             </noscript>
-                            <h3 class="h5 text-primary">James Smith</h3>
-                            <p class="text-black-50">Designer, Co-founder</p>
+                            <h3 class="h5 text-primary">Deema N. Alsaqqa</h3>
+                            <p class="text-black-10">Ui/Ux Designer</p>
+                            <p class="text-black-50">deema2saqqa@gmail.com</p>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
                                 there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
                                 Semantics, a large language ocean.</p>
@@ -148,12 +150,13 @@
                     </div>
                     <div class="item">
                         <div class="testimonial">
-                            <img data-cfsrc="{{asset('MMM/images/person_2.jpg')}}" alt="Image" class="img-fluid rounded-circle w-25 mb-4"
+                            <img data-cfsrc="{{asset('MMM/images/mona.jpeg')}}" alt="Image" class="img-fluid rounded-circle w-25 mb-4"
                                  style="display:none;visibility:hidden;">
-                            <noscript><img src="{{asset('MMM/images/person_2.jpg')}}" alt="Image" class="img-fluid rounded-circle w-25 mb-4">
+                            <noscript><img src="{{asset('MMM/images/mona.jpeg')}}" alt="Image" class="img-fluid rounded-circle w-25 mb-4">
                             </noscript>
-                            <h3 class="h5 text-primary">Carol Houston</h3>
-                            <p class="text-black-50">Designer, Co-founder</p>
+                            <h3 class="h5 text-primary">Mona mousa alrozzi</h3>
+                            <p class="text-black-10">Co founder &CEO</p>
+                            <p class="text-black-50">Mona.ruzzi@gmail.com</p>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
                                 there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
                                 Semantics, a large language ocean.</p>

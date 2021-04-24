@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -39,7 +41,40 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $request->validate([
+            'name' => 'required', 'string', 'max:255',
+            'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
+            'jop' => 'required', 'string',
+            'country' => 'required', 'string',
+            'gender' => 'required', 'string',
+            'address' => 'required', 'string', 'min:10',
+            'birthday' => 'required',
+            'image' => 'required',
+            'password' => 'required', 'string', 'min:8', 'confirmed',
+        ]);
+
+        $pass = $request->get('password');
+        $user = new User();
+        $user ->name=$request->get('name');
+        $user ->email=$request->get('email');
+        $user ->password=Hash::make($pass);
+        $user ->birthday=$request->get('birthday');
+        $user ->country=$request->get('country');
+        $user ->gender=$request->get('gender');
+        $user ->jop=$request->get('jop');
+        $user ->address=$request->get('address');
+        if ($request->hasFile('image')){
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $request->image->move(public_path('imageUsers/'), $imageName);
+            $user ->image=($imageName);
+        }
+        $user->save();
+        session()->flash('user_added');
+        return redirect()->route('indexUsers');
+
     }
 
     /**
@@ -50,7 +85,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-
+        $user = User::findOrFail($id);
+        return view('CMS.users.show_users',compact('user'));
     }
 
     /**
@@ -61,10 +97,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-
-//        $user = User::findOrFail($id);
-//        return view('MMM.edit-profile',compact('user'));
-
+//        dd($id);
+        $user = User::findOrFail($id);
+        return view('CMS.users.edit_users',compact('user'));
     }
 
     /**
@@ -76,11 +111,24 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-
-        $input = $request->all();
+//        dd($request);
         $user = User::findOrFail($id);
-        $user->update($input);
+        $user ->name=$request->get('name');
+        $user ->email=$request->get('email');
+        $user ->birthday=$request->get('birthday');
+        $user ->gender=$request->get('gender');
+        $user ->country=$request->get('country');
+        $user ->jop=$request->get('jop');
+        $user ->address=$request->get('address');
+        if ($request->hasFile('image')){
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $request->image->move(public_path('imageUsers/'), $imageName);
+            $user ->image=($imageName);
+        }
+
+        session()->flash('user_edited');
+        $user->save();
 
         return redirect()->back();
     }
@@ -91,28 +139,28 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
-    }
-
-    public function profile($id)
-    {
-
-        $user = User::findOrFail($id);
-        return view('MMM.edit-profile',compact('user'));
-    }
-
-    public function profileUpdate(Request $request)
-    {
-//        dd($request);
-        $input = $request->all();
         $id = $request->id;
-        $user = User::findOrFail($id);
-        $user->update($input);
+        User::findOrFail($id)->delete();
 
-        return redirect()->back();
+
+        session()->flash('User_deleted');
+        return redirect()->route('indexUsers');
+
     }
+
+
+
+
+    public function indexUsers()
+    {
+        $users = User::paginate(2);
+        return view('CMS.users.index_users',compact('users'));
+    }
+
+
+
 
 
 }

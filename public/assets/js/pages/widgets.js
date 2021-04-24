@@ -7,36 +7,36 @@ $(function() {
         height: '60px',
         barSpacing: 3,
         barWidth: 2,
-        barColor: '#17a2b8',        
+        barColor: '#17a2b8',
     });
     $('.chart_3').sparkline('html', {
         type: 'bar',
         height: '60px',
         barSpacing: 3,
         barWidth: 2,
-        barColor: '#28a745',        
+        barColor: '#28a745',
     });
     $('.chart_4').sparkline('html', {
         type: 'bar',
         height: '60px',
         barSpacing: 3,
         barWidth: 2,
-        barColor: '#45aaf2',        
+        barColor: '#45aaf2',
     });
     $('.chart_2').sparkline('html', {
         type: 'bar',
         height: '60px',
         barSpacing: 3,
         barWidth: 2,
-        barColor: '#f3ad06',        
+        barColor: '#f3ad06',
     });
-    // Summary 
+    // Summary
     $('.chart').sparkline('html', {
         type: 'bar',
         height: '53px',
         barSpacing: 3,
         barWidth: 2,
-        barColor: '#434750',        
+        barColor: '#434750',
     });
 
     $('.knob').knob({
@@ -67,13 +67,13 @@ $(function() {
             ],
             type: 'bar', // default type of chart
             colors: {
-                'data1': '#467fcf', // blue            
+                'data1': '#467fcf', // blue
                 'data2': '#5eba00', // green
                 'data3': '#f66d9b', // pink
             },
             names: {
                 // name of each serie
-                'data1': 'Income',            
+                'data1': 'Income',
                 'data2': 'Growth',
                 'data3': 'Expense',
             }
@@ -106,7 +106,7 @@ $(function() {
         },
         data: {
             names: {
-                data1: 'Users online'
+                data1: 'imageUsers online'
             },
             columns: [
                 ['data1', 30, 40, 10, 40, 12, 22, 40]
@@ -160,7 +160,7 @@ $(function() {
         },
         data: {
             names: {
-                data1: 'Users online'
+                data1: 'imageUsers online'
             },
             columns: [
                 ['data1', 30, 40, 10, 40, 12, 22, 40]
@@ -214,7 +214,7 @@ $(function() {
         },
         data: {
             names: {
-                data1: 'Users online'
+                data1: 'imageUsers online'
             },
             columns: [
                 ['data1', 30, 40, 10, 40, 12, 22, 40]
@@ -268,7 +268,7 @@ $(function() {
         },
         data: {
             names: {
-                data1: 'Users online'
+                data1: 'imageUsers online'
             },
             columns: [
                 ['data1', 30, 40, 10, 40, 12, 22, 40]

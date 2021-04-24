@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
@@ -19,8 +20,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
+//Route::group(['middleware' => ['auth']],function (){
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', function () {
     return view('MMM.index');
@@ -37,10 +40,17 @@ Route::get('about',function (){
 
 Route::resource('users',UserController::class);
 Route::resource('projects',ProjectController::class)->middleware('auth');
+
+
+
+
 Route::get('profile/{id}',[UserController::class,'index'])->name('profile');
 Route::get('my-projects',[ProjectController::class,'myProjects'])->name('myProjects');
-//Route::get('allProjects',[ProjectController::class,'allProjects']);
+Route::get('/',[HomeController::class,'allProjects'])->name('home');
+Route::get('entrepreneurs',[HomeController::class,'entrepreneurs'])->name('entrepreneurs');
 
+
+Route::get('indexUsers',[UserController::class,'indexUsers'])->name('indexUsers');
 
 
 
@@ -51,3 +61,12 @@ Route::get('my-projects',[ProjectController::class,'myProjects'])->name('myProje
 
 
 Route::view('parent','MMM.parent');
+Route::view('dashParent','CMS.parent');
+
+Route::get('CMS',function (){
+   return view('CMS.dashboard');
+})->name('dashboard');
+
+
+
+//});

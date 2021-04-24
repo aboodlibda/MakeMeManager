@@ -1,12 +1,12 @@
 $(function() {
 "use strict";
-    // Summary 
+    // Summary
     $('.chart').sparkline('html', {
         type: 'bar',
         height: '55px',
         barSpacing: 3,
         barWidth: 2,
-        barColor: '#17C2D7',        
+        barColor: '#17C2D7',
     });
 
     $('.knob').knob({
@@ -39,7 +39,7 @@ $(function() {
             names: {
                 // name of each serie
                 'data1': 'Sessions',
-                'data2': 'Users'
+                'data2': 'imageUsers'
             }
         },
         axis: {
@@ -166,46 +166,46 @@ $(function () {
                     'stroke-opacity': 0.4
                 },
             },
-        
+
             markers : [{
                 latLng : [21.00, 78.00],
                 name : 'INDIA : 350'
-            
+
             },
                 {
                 latLng : [-33.00, 151.00],
                 name : 'Australia : 250'
-                
+
             },
                 {
                 latLng : [36.77, -119.41],
                 name : 'USA : 250'
-                
+
             },
                 {
                 latLng : [55.37, -3.41],
                 name : 'UK   : 250'
-                
+
             },
                 {
                 latLng : [25.20, 55.27],
                 name : 'UAE : 250'
-            
+
             },
                 {
                 latLng : [35.65, 139.83],
                 name : 'JP : 37'
-            
+
             },
                 {
                 latLng : [-23.53, -46.62],
                 name : 'BR : 162'
-            
+
             },
                 {
                 latLng : [50.43, 30.51],
                 name : 'UA : 129'
-            
+
             }],
 
             series: {
@@ -250,7 +250,7 @@ $(function() {
             lines: {
             fillColor: { colors: [{ opacity: 0 }, { opacity: 0.2 }]}
             }
-        }], 
+        }],
         {
             series: {
                 shadowSize: 0,
@@ -269,7 +269,7 @@ $(function() {
                         min: 0,
                         max: 100,
                 ticks: [[0,''],[20,'14K'],[40,'37K'],[60,'49K'],[80,'68K']],
-            
+
             },
             xaxis: {
                 show: true,

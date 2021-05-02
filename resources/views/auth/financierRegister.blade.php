@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Make Me Manager | Register</title>
+    <title>Make Me Manager | Financier Register</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -11,12 +11,12 @@
 
     <link rel="icon" href="{{asset('Dashboard/assets/images/logo.png')}}" type="image/x-icon">
     <!-- VENDOR CSS -->
-    <link rel="stylesheet" href="dashboard/assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="dashboard/assets/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="dashboard/assets/vendor/animate-css/vivify.min.css">
+    <link rel="stylesheet" href="{{asset('dashboard/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard/assets/vendor/animate-css/vivify.min.css')}}">
 
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="assets/css/site.min.css">
+    <link rel="stylesheet" href="{{asset('assets/css/site.min.css')}}">
 
 </head>
 
@@ -41,10 +41,10 @@
                 </div>
 
 
-                <form class="form-auth-small" action="{{route('register')}}" method="POST">
+                <form class="form-auth-small" action="{{route('save.financier.register')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <p class="lead">Create an Entrepreneur account</p>
+                        <p class="lead">Create an Financier account</p>
                     </div>
                     <!-- Name input -->
                     <div class="form-group">
@@ -98,7 +98,7 @@
 
                     <button type="submit" class="btn btn-primary btn-round btn-block">Register</button>
                     <div class="mt-4">
-                        <span>Do You have an account? <a href="{{ route('login') }}">Login</a></span>
+                        <span>Do You have an account? <a href="{{ route('financier.login') }}">Login</a></span>
                     </div>
                 </form>
                 <div class="pattern">
@@ -115,8 +115,8 @@
 </div>
 <!-- END WRAPPER -->
 
-<script src="assets/bundles/libscripts.bundle.js"></script>
-<script src="assets/bundles/vendorscripts.bundle.js"></script>
-<script src="assets/bundles/mainscripts.bundle.js"></script>
+<script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script>
+<script src="{{asset('assets/bundles/vendorscripts.bundle.js')}}"></script>
+<script src="{{asset('assets/bundles/mainscripts.bundle.js')}}"></script>
 </body>
 </html>

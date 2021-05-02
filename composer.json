@@ -15,7 +15,8 @@
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
-      "ext-http": "*"
+        "php-http/curl-client": "^2.2",
+        "wulfheart/pretty_routes": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

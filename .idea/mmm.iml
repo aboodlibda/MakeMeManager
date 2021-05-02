@@ -60,7 +60,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/service-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpoption/phpoption" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/string" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/process" />
@@ -111,6 +110,17 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/spatie/laravel-package-tools" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/wulfheart/pretty_routes" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/clue/stream-filter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/discovery" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/curl-client" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/message" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/httplug" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/promise" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/message-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/options-resolver" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

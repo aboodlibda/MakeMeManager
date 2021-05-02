@@ -184,7 +184,16 @@
                                     class="icon-magnifier"></i></a></li>
                         <li><a href="javascript:void(0);" class="right_toggle icon-menu" title="Right Menu"><i
                                     class="icon-bubbles"></i><span class="notification-dot bg-pink">2</span></a></li>
-                        <li><a href="page-login.html" class="icon-menu"><i class="icon-power"></i></a></li>
+                        <li>
+{{--                            <a href="page-login.html" class="icon-menu"><i class="icon-power"></i></a>--}}
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"  class="icon-menu"><i class="icon-power"></i>
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -561,13 +570,26 @@
         <div class="sidebar-scroll">
             <div class="user-account">
                 <div class="user_div">
-                    <img src="{{asset('imageUsers/'.Auth::user()->image)}}" class="user-photo" alt="User Profile Picture">
+                    @if(Auth::guard('admin')->check())
+                        <img src="{{asset(Auth::guard('admin')->user()->image)}}" class="user-photo" alt="User Profile Picture">
+                    @else
+                    @endif
+
+
+
                 </div>
                 <div class="dropdown">
                     <span>Welcome,</span>
-                    <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>{{ Auth::user()->name }}</strong></a>
+                    <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>
+
+                                @if(Auth::guard('admin')->check())
+                                {{ Auth::guard('admin')->user()->name }}
+                            @else
+                            @endif
+
+                        </strong></a>
                     <ul class="dropdown-menu dropdown-menu-right account vivify flipInY">
-                        <li><a href="{{route('profile',Auth::user()->id)}}"><i class="icon-user"></i>My Profile</a></li>
+{{--                        <li><a href="{{route('profile'.Auth::guard('financier')->user('id'))}}"><i class="icon-user"></i>My Profile</a></li>--}}
                         <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
                         <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
                         <li class="divider"></li>
@@ -581,9 +603,10 @@
                     <li><a href="{{route('home')}}"><i class="icon-home"></i><span>Home</span></a></li>
                     <li class=""><a href="{{route('dashboard')}}"><i
                                 class="icon-speedometer"></i><span>HR Dashboard</span></a></li>
-                    <li><a href="{{route('indexUsers')}}"><i class="icon-user"></i><span>Users</span></a></li>
-                    <li><a href="departments.html"><i class="icon-grid"></i><span>Projects</span></a></li>
-                    <li><a href="employee.html"><i class="icon-users"></i><span>Employee</span></a></li>
+                    <li><a href="{{route('indexUsers')}}"><i class="icon-user"></i><span>Entrepreneurs</span></a></li>
+                    <li><a href="{{route('indexFinanciers')}}"><i class="icon-user"></i><span>Financiers</span></a></li>
+                    <li><a href="{{route('projectIndex')}}"><i class="icon-grid"></i><span>Projects</span></a></li>
+                    <li><a href="{{route('projectFundedIndex')}}"><i class="icon-grid"></i><span>Funded Projects</span></a></li>
                     <li><a href="activities.html"><i class="icon-equalizer"></i><span>Activities</span></a></li>
                     <li><a href="holidays.html"><i class="icon-flag"></i><span>Holidays</span></a></li>
                     <li><a href="events.html"><i class="icon-calendar"></i><span>Events</span></a></li>

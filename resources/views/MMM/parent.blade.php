@@ -42,44 +42,58 @@
                 <a href="{{route('home')}}" class="logo m-0 float-start">Make Me Manager</a>
                 <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li class="has-children">
-                        <a href="properties.html">Properties</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Buy Property</a></li>
-                            <li><a href="#">Sell Property</a></li>
-                            <li class="has-children">
-                                <a href="#">Dropdown</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">Sub Menu One</a></li>
-                                    <li><a href="#">Sub Menu Two</a></li>
-                                    <li><a href="#">Sub Menu Three</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
                     <li><a href="{{route('projects.index')}}">Projects</a></li>
+                    <li><a href="{{route('financiers.index')}}">Financiers</a></li>
+                    <li><a href="{{route('entrepreneurs')}}">Entrepreneurs</a></li>
                     <li><a href="{{route('about')}}">About</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    @guest
-                        @if (Route::has('login'))
-                            <li class="HeaderMenu-link flex-shrink-0 d-inline-block no-underline border color-border-tertiary rounded px-2 py-1"><a href="{{route('login')}}">Sign in</a></li>
-                        @endif
-                        @if (Route::has('register'))
-                            <li class="HeaderMenu-link flex-shrink-0 d-inline-block no-underline border color-border-tertiary rounded px-2 py-1"><a href="{{route('register')}}">Sign up</a></li>
-                        @endif
-                    @else
+{{--                    <li><a href="contact.html">Contact Us</a></li>--}}
+
+                    @if(Auth::guard('financier')->check())
+                        <li class="has-children">
+
+                            <a  href="#" role="button">
+                                {{ Auth::guard('financier')->user()->name }}
+                            </a>
+                            <ul class="dropdown">
+                                <li><span class="badge btn-primary">Financier account</span></li>
+                                <li><a href="{{route('financiers.profile',Auth::guard('financier')->user()->id)}}">Profile</a></li>
+                                <li><a href="{{route('myFundedProjects')}}">My Projects
+                                        &nbsp;&nbsp; <span class="badge btn-info">{{Auth::guard('financier')->user()->fundedProjects->count()}}</span>
+                                    </a></li>
+                                <li><a href="#">settings</a></li>
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+
+                                </li>
 
 
+                            </ul>
 
+
+                        </li>
+                    @elseif(null)
+                        <li class="HeaderMenu-link flex-shrink-0 d-inline-block no-underline border color-border-tertiary rounded px-2 py-1"><a href="{{route('financier.login')}}">Sign in</a></li>
+                        <li class="HeaderMenu-link flex-shrink-0 d-inline-block no-underline border color-border-tertiary rounded px-2 py-1"><a href="{{route('financier.register')}}">Sign up</a></li>
+
+
+                    @elseif(Auth::guard('web')->check())
                         <li class="has-children">
 
                             <a  href="#" role="button">
                                 {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown">
-                                <li><a href="{{route('profile',Auth::user()->id)}}">Profile</a></li>
+                                <li><span class="badge btn-success">Entrepreneur account</span></li>
+                                <li><a href="{{route('profile',Auth::user()->name)}}">Profile</a></li>
                                 <li><a href="{{route('myProjects')}}">My Projects
-                                       &nbsp;&nbsp; <span class="badge btn-info">{{\Illuminate\Support\Facades\Auth::user()->projects->count()}}</span>
+                                        &nbsp;&nbsp; <span class="badge btn-info">{{\Illuminate\Support\Facades\Auth::user()->projects->count()}}</span>
                                     </a></li>
                                 <li><a href="#">settings</a></li>
                                 <li>
@@ -90,9 +104,9 @@
                                         {{ __('Logout') }}
                                     </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
 
                                 </li>
 
@@ -101,8 +115,12 @@
 
 
                         </li>
+                        @else
+                        <li class="HeaderMenu-link flex-shrink-0 d-inline-block no-underline border color-border-tertiary rounded px-2 py-1"><a href="{{route('login')}}">Sign in</a></li>
+                        <li class="HeaderMenu-link flex-shrink-0 d-inline-block no-underline border color-border-tertiary rounded px-2 py-1"><a href="{{route('register')}}">Sign up</a></li>
+                    @endif
 
-                    @endguest
+
                 </ul>
 
                 <a href="#"
@@ -125,8 +143,7 @@
         <div class="row justify-content-center mb-5 footer-cta">
             <div class="col-lg-7 mx-auto text-center">
                 <h2 class="mb-4 ">Be a part of our growing real state agents</h2>
-                <p><a href="#" target="_blank" class="btn btn-primary text-white py-3 px-4">Apply for Real Estate
-                        agent</a></p>
+                <p><a href="#" target="_blank" class="btn btn-primary text-white py-3 px-4">Contact With Us</a></p>
             </div>
         </div>
         <div class="row">

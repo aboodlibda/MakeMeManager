@@ -14,7 +14,6 @@ class CreateProjectsTable extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
-//            $table->engine = 'InnoDB';
             $table->id();
             $table->text('title');
             $table->string('category');
@@ -29,7 +28,9 @@ class CreateProjectsTable extends Migration
             $table->string('link')->nullable();
             $table->string('reward_description')->nullable();
             $table->integer('investment_ratio')->nullable();
-            $table->integer('user_id')->unsigned();
+            $table->decimal('collected_money')->nullable();
+            $table->tinyInteger('isFunded')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

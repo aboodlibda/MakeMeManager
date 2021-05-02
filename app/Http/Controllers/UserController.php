@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Financier;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         $user =User::findOrFail(Auth::id()) ;
 
@@ -52,6 +53,7 @@ class UserController extends Controller
             'address' => 'required', 'string', 'min:10',
             'birthday' => 'required',
             'image' => 'required',
+            'bio' => 'required','string',
             'password' => 'required', 'string', 'min:8', 'confirmed',
         ]);
 
@@ -65,6 +67,7 @@ class UserController extends Controller
         $user ->gender=$request->get('gender');
         $user ->jop=$request->get('jop');
         $user ->address=$request->get('address');
+        $user ->bio=$request->get('bio');
         if ($request->hasFile('image')){
             $image = $request->file('image');
             $imageName = $image->getClientOriginalName();
@@ -120,6 +123,7 @@ class UserController extends Controller
         $user ->country=$request->get('country');
         $user ->jop=$request->get('jop');
         $user ->address=$request->get('address');
+        $user ->bio=$request->get('bio');
         if ($request->hasFile('image')){
             $image = $request->file('image');
             $imageName = $image->getClientOriginalName();
@@ -155,7 +159,7 @@ class UserController extends Controller
 
     public function indexUsers()
     {
-        $users = User::paginate(2);
+        $users = User::latest()->paginate(10);
         return view('CMS.users.index_users',compact('users'));
     }
 

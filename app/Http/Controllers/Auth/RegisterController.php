@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Financier;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use http\Env\Request;
@@ -71,6 +72,9 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+
+
 
 
 }

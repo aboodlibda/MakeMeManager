@@ -5,19 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Funded extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
-
-    public function user ()
+    public function financier ()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(Financier::class);
     }
 
-    public function fundedProjects ()
+    public function project ()
     {
-        return $this->hasOne(Funded::class);
+        return $this->belongsTo(Project::class);
     }
 }

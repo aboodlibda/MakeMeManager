@@ -16,9 +16,15 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => ['create','store','edit','update']]);
+    }
+
+
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::latest()->paginate(10);
         return view('MMM.projects.projects',compact('projects'));
     }
 
@@ -41,7 +47,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
 
-
+        $this->validate($request, ['file' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
         $request->validate([
             'title' => 'required|String|min:10',
             'category' => 'required:String',
@@ -53,6 +59,7 @@ class ProjectController extends Controller
             'duration' => 'required|numeric',
             'description' => 'required|String',
             'link' => 'required|String',
+//            'file' => 'image|mimes:jpeg,jpg,png,gif|required|max:10000',
         ]);
 
             $image = $request->file('image');
@@ -172,6 +179,7 @@ class ProjectController extends Controller
         return view('MMM.projects.my-projects',compact('projects'));
 
     }
+
 
 
 

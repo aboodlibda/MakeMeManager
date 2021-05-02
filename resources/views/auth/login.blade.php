@@ -43,8 +43,9 @@
 
                 <form class="form-auth-small" action="{{route('login')}}" method="POST">
                     @csrf
+
                     <div class="mb-3">
-                        <p class="lead">Login to your account</p>
+                        <p class="lead">Login To Entrepreneur Account</p>
                     </div>
                     <div class="form-group">
                         <label for="email" class="control-label">Email</label>
@@ -79,6 +80,12 @@
                     <div class="mt-4">
                         <span class="helper-text m-b-10"><i class="fa fa-lock"></i> <a href="{{ route('password.request') }}">Forgot password?</a></span>
                         <span>Don't have an account? <a href="{{ route('register') }}">Register</a></span>
+                    </div>
+<br>
+                    <div>
+                        <p class="lead"><strong>Are You A Financier ?</strong> <br>
+                            <a href="{{route('financier.login')}}">Login From Here</a>
+                        </p>
                     </div>
                 </form>
                 <div class="pattern">

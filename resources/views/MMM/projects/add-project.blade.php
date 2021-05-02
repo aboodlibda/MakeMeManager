@@ -137,15 +137,15 @@
                                     <div class="col-lg-6 col-md-12">
                                         <label>Project Title</label>
                                         <div class="input-group mb-3">
-                                            <input type="text" name="title" id="title" class="form-control" >
+                                            <input type="text" name="title" id="title" class="form-control" value="{{old('title')}}" >
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6 col-md-12">
                                         <label>Category</label>
                                         <div class="form-group">
-                                            <select class="form-control" name="category" id="category">
-                                                <option value="">-- Select Category --</option>
+                                            <select class="form-control" name="category" id="category" >
+                                                <option value="">{{old('category')}}-- Select Category --</option>
                                                 <option value="AF">Art</option>
                                                 <option value="AX">Comics</option>
                                                 <option value="AL">Crafts</option>
@@ -172,7 +172,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-dollar"></i></span>
                                             </div>
-                                            <input type="text" name="requested_financing" id="requested_financing" class="form-control money-dollar" placeholder="Ex: 99,99 $">
+                                            <input type="text" name="requested_financing" id="requested_financing" value="{{old('requested_financing')}}" class="form-control money-dollar" placeholder="Ex: 99,99 $">
                                         </div>
 
                                     </div>
@@ -438,7 +438,7 @@
                                     <div class="col-lg-6 col-md-12">
                                         <label>Publication Date (dd/mm/yyyy)</label>
                                         <div class="input-group mb-3">
-                                            <input data-provide="datepicker" name="publication_date" data-date-autoclose="true" class="form-control" data-date-format="yyyy-mm-dd">
+                                            <input data-provide="datepicker" name="publication_date" value="{{old('publication_date')}}" data-date-autoclose="true" class="form-control" data-date-format="yyyy-mm-dd">
                                         </div>
                                     </div>
 
@@ -481,7 +481,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-dollar"></i></span>
                                             </div>
-                                            <input type="text" name="funding_goal" id="funding_goal" class="form-control money-dollar" placeholder="Ex: 99,99 $">
+                                            <input type="text" name="funding_goal" id="funding_goal" value="{{old('funding_goal')}}" class="form-control money-dollar" placeholder="Ex: 99,99 $">
                                         </div>
 
                                     </div>
@@ -493,7 +493,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-dollar"></i></span>
                                             </div>
-                                            <input type="text" name="minimum_amount" id="minimum_amount" class="form-control money-dollar" placeholder="Ex: 99,99 $">
+                                            <input type="text" name="minimum_amount" id="minimum_amount" value="{{old('minimum_amount')}}" class="form-control money-dollar" placeholder="Ex: 99,99 $">
                                         </div>
 
                                     </div>
@@ -501,7 +501,7 @@
                                     <div class="col-lg-6 col-md-12">
                                         <label>Duration of Fundraising ( Days )</label>
                                         <div class="input-group mb-3">
-                                            <input type="number" name="duration" id="duration" class="form-control money-dollar" placeholder="Ex: 99,99 $">
+                                            <input type="number" name="duration" id="duration" class="form-control money-dollar" value="{{old('duration')}}">
                                         </div>
 
                                     </div>
@@ -531,7 +531,7 @@
                                         <label><b>Write in detail about the campaign, its reasons, the purpose of the funding request, etc.</b></label>
                                         <br>
                                         <br>
-                                        <textarea id="ckeditor" name="description" ></textarea>
+                                        <textarea id="ckeditor" name="description" >{{old('description')}}</textarea>
 
                                     </div>
 
@@ -545,7 +545,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-link"></i></span>
                                             </div>
-                                            <input type="text" name="link" id="link" class="form-control">
+                                            <input type="text" name="link" id="link" value="{{old('link')}}" class="form-control">
                                         </div>
 
                                     </div>
@@ -586,13 +586,13 @@
                                             <label>Description</label>
                                             <div class="input-group">
 
-                                                <textarea class="form-control" name="reward_description" ></textarea>
+                                                <textarea class="form-control" name="reward_description" >{{old('reward_description')}}</textarea>
                                             </div>                                        </div><!-- col-4 -->
 
 
                                         <div class="col-lg-3 mg-t-20 mg-lg-t-0" id="invoice_number">
                                             <p class="mg-b-10">Investment ratio (%)</p>
-                                            <input type="text" class="form-control" id="invoice_number" name="investment_ratio">
+                                            <input type="text" class="form-control" value="{{old('investment_ratio')}}" id="invoice_number" name="investment_ratio">
 
                                         </div><!-- col-4 -->
 

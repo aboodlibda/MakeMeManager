@@ -3,14 +3,18 @@
 @section('title')
     {{'Profile'}}
 @endsection
-<link rel="stylesheet" href="{{asset('CMS/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
-<link rel="stylesheet" href="{{asset('CMS/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
-<link rel="stylesheet" href="{{asset('CMS/assets/vendor/animate-css/vivify.min.css')}}">
+@section('links')
+    <link href="{{asset('assets/plugins/notify/css/notifIt.css')}}" rel="stylesheet"/>
 
-<link rel="stylesheet" href="{{asset('Dashboard/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}">
 
-<!-- MAIN CSS -->
-<link rel="stylesheet" href="{{asset('assets/css/site.min.css')}}">
+    <link rel="stylesheet" href="{{asset('CMS/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('CMS/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('CMS/assets/vendor/animate-css/vivify.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('CMS/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="{{asset('assets/css/site.min.css')}}">
 <style>
     /*
 *
@@ -69,6 +73,7 @@
 
     /*
 </style>
+@endsection
 @section('content')
 
 
@@ -76,13 +81,26 @@
 
 <br><br><br><br>
 
+@if (session()->has('financier_edited'))
+    <script>
+        window.onload = function () {
+
+            notif({
+                msg: "Profile Updated Successfully",
+                type: "success"
+            });
+        }
+    </script>
+
+@endif
+
 
     <div class="row justify-content-between mb-5" style="margin-right: 200px">
         <div class="container">
         <div id="main-content">
 
             <div class="container-fluid">
-              <strong>  <h4 class="badge-danger">Complete Your Profile Information</h4></strong>
+              <strong>  <h4 class="badge-danger">Your Profile Information</h4></strong>
                 <br>
                 <div class="row clearfix">
 
@@ -91,23 +109,25 @@
 
 
                             <div class="body">
-                                <form action="{{route('users.update',$user->id)}}" method="POST" enctype="multipart/form-data">
-                                <div class="row clearfix">
+                                <form action="{{route('financiers.update',$financier->id)}}" method="POST" enctype="multipart/form-data">
                                     @csrf
+{{--                                    {{method_field('PUT')}}--}}
+                                <div class="row clearfix">
+
                                     {{method_field('put')}}
 {{--                                    <h6>Change Information</h6><br>--}}
                                     <div class="col-lg-6 col-md-12">
 
                                         <div class="form-group">
                                             <label><strong>Full Name</strong></label>
-                                            <input type="text" name="name" id="name" class="form-control"  value="{{$user->name}}" >
+                                            <input type="text" name="name" id="name" class="form-control"  value="{{$financier->name}}" >
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12">
 
                                         <div class="form-group">
                                             <label><strong>Email</strong></label>
-                                            <input type="text" name="email" id="email" class="form-control"  value="{{$user->email}}" >
+                                            <input type="text" name="email" id="email" class="form-control"  value="{{$financier->email}}" >
                                         </div>
                                     </div>
 
@@ -118,8 +138,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="icon-calendar"></i></span>
                                                 </div>
-{{--                                                <input  type="text" class="form-control datepicker-dropdown" name="birthday" id="birthday" value="{{ date($user->birthday) }}">--}}
-                                                <input data-provide="datepicker" name="birthday" value="{{ date($user->birthday) }}"  class="form-control" data-date-format="yyyy-mm-dd">
+                                                <input  type="text" class="form-control datepicker-dropdown" name="birthday" id="birthday" value="{{ date($financier->birthday) }}">
                                             </div>
                                         </div>
                                     </div>
@@ -128,7 +147,7 @@
                                         <div class="form-group">
                                             <label><strong>Gender</strong></label>
                                             <select class=" form-control " name="gender" id="gender">
-                                                <option selected value="{{$user->gender}}" >{{$user->gender}}</option>
+                                                <option selected value="{{$financier->gender}}" >{{$financier->gender}}</option>
                                                 <option value="male">Male</option>
                                                 <option value="female">Female</option>
                                             </select>
@@ -139,7 +158,7 @@
                                         <div class="form-group">
                                             <label><strong>Country</strong></label>
                                             <select class="form-control" name="country" >
-                                                <option value="{{$user->country}}">{{$user->country}}</option>
+                                                <option value="{{$financier->country}}">{{$financier->country}}</option>
                                                 <option value="AF">Afghanistan</option>
                                                 <option value="AX">Åland Islands</option>
                                                 <option value="AL">Albania</option>
@@ -395,14 +414,14 @@
                                     <div class="col-lg-4 col-md-12">
                                         <div class="form-group">
                                             <label><strong>Jop</strong></label>
-                                                <input type="text" name="jop" id="jop" class="form-control" value="{{$user->jop}}" >
+                                                <input type="text" name="jop" id="jop" class="form-control" value="{{$financier->jop}}" >
 
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label><strong>Bio</strong></label>
-                                            <textarea name="bio" id="bio" rows="4" type="text" class="form-control">{{$user->bio}}</textarea>
+                                            <textarea name="bio" id="bio" rows="4" type="text" class="form-control">{{$financier->bio}}</textarea>
                                         </div>
                                     </div>
 
@@ -410,7 +429,7 @@
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label><strong>Address</strong></label>
-                                        <textarea name="address" id="address" rows="4" type="text" class="form-control">{{$user->address}}</textarea>
+                                        <textarea name="address" id="address" rows="4" type="text" class="form-control">{{$financier->address}}</textarea>
                                         </div>
                                     </div>
 
@@ -430,7 +449,7 @@
 
                                         <!-- Uploaded image area-->
                                         <p class="font-italic text-white text-center">The image uploaded will be rendered inside the box below.</p>
-                                        <div class="image-area mt-2"><img id="imageResult" src="{{asset('imageUsers/'.$user->image)}}" alt="" class="img-thumbnail rounded shadow-sm mx-sm-2" style="width: 200px;height: 200px"></div>
+                                        <div class="image-area mt-2"><img id="imageResult" src="{{asset('imageFinanciers/'.$financier->image)}}" alt="" class="img-thumbnail rounded shadow-sm mx-sm-2" style="width: 200px;height: 200px"></div>
 
                                     </div>
                                     </div>
@@ -474,44 +493,53 @@
 
 @endsection
 @section('scripts')
-<script src="{{asset('Dashboard/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
-<script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script>
-<script src="{{asset('assets/bundles/vendorscripts.bundle.js')}}"></script>
-<script src="{{asset('assets/bundles/mainscripts.bundle.js')}}"></script>
+    <script>
+                var date = $('.datepicker-dropdown').datepicker({
+                    dateFormat: 'yy/mm/dd'
+                }).val();
+            </script>
 
-<script>
-    /*  ==========================================
-    SHOW UPLOADED IMAGE
-* ========================================== */
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+    <script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script>
+    <script src="{{asset('assets/bundles/vendorscripts.bundle.js')}}"></script>
 
-            reader.onload = function (e) {
-                $('#imageResult')
-                    .attr('src', e.target.result);
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $(function () {
-        $('#upload').on('change', function () {
-            readURL(input);
-        });
-    });
-
-    /*  ==========================================
-        SHOW UPLOADED IMAGE NAME
+    <script src="{{asset('CMS/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{asset('CMS/assets/vendor/bootstrap-datepicker/js/datepicker.js')}}"></script>
+    <script src="{{asset('assets/bundles/mainscripts.bundle.js')}}"></script>
+    <script src="{{asset('assets/plugins/notify/js/notifIt.js')}}"></script>
+    <script src="{{asset('assets/plugins/notify/js/notifit-custom.js')}}"></script>
+    <script>
+        /*  ==========================================
+        SHOW UPLOADED IMAGE
     * ========================================== */
-    var input = document.getElementById( 'upload' );
-    var infoArea = document.getElementById( 'upload-label' );
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
-    input.addEventListener( 'change', showFileName );
-    function showFileName( event ) {
-        var input = event.srcElement;
-        var fileName = input.files[0].name;
-        infoArea.textContent = 'File name: ' + fileName;
-    }
-</script>
+                reader.onload = function (e) {
+                    $('#imageResult')
+                        .attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $(function () {
+            $('#upload').on('change', function () {
+                readURL(input);
+            });
+        });
+
+        /*  ==========================================
+            SHOW UPLOADED IMAGE NAME
+        * ========================================== */
+        var input = document.getElementById( 'upload' );
+        var infoArea = document.getElementById( 'upload-label' );
+
+        input.addEventListener( 'change', showFileName );
+        function showFileName( event ) {
+            var input = event.srcElement;
+            var fileName = input.files[0].name;
+            infoArea.textContent = 'File name: ' + fileName;
+        }
+    </script>
 @endsection

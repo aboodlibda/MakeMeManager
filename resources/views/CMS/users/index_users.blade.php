@@ -503,6 +503,17 @@
 
                                     </div>
                                 </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <label for="address"> Bio </label>
+                                    <div class="form-group">
+                                        <textarea name="bio" id="bio" rows="4" type="text"
+                                                  class="form-control"></textarea>
+
+                                    </div>
+                                </div>
+
+
                                 <div class="col-lg-6 col-md-12">
                                     <label>Upload Image</label>
                                     <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">

@@ -24,65 +24,80 @@
         <div class="col-6 col-md-4 col-xl-2">
             <div class="card">
                 <div class="body ribbon">
-                    <div class="ribbon-box green">{{Auth::user()->count()}}</div>
+                    <div class="ribbon-box green">
+                            {{$users}}
+                    </div>
                     <a href="{{route('indexUsers')}}" class="my_sort_cut text-muted">
                         <i class="icon-users"></i>
-                        <span>Users</span>
+                        <span>Entrepreneurs</span>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="col-6 col-md-4 col-xl-2">
-            <div class="card">
-                <div class="body">
-                    <a href="holidays.html" class="my_sort_cut text-muted">
-                        <i class="icon-like"></i>
-                        <span>Holidays</span>
-                    </a>
-                </div>
-            </div>
-        </div>
+
         <div class="col-6 col-md-4 col-xl-2">
             <div class="card">
                 <div class="body ribbon">
-                    <div class="ribbon-box orange">8</div>
-                    <a href="events.html" class="my_sort_cut text-muted">
+                    <div class="ribbon-box orange">
+                        {{$projects}}
+                    </div>
+                    <a href="{{route('projectIndex')}}" class="my_sort_cut text-muted">
+                        <i class="icon-grid"></i>
+                        <span>Projects</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="card">
+                <div class="body ribbon">
+                    <div class="ribbon-box green">
+                        {{$financiers}}
+                    </div>
+                    <a href="{{route('indexFinanciers')}}" class="my_sort_cut text-muted">
                         <i class="icon-calendar"></i>
-                        <span>Events</span>
+                        <span>Financiers</span>
                     </a>
                 </div>
             </div>
         </div>
+
+
         <div class="col-6 col-md-4 col-xl-2">
             <div class="card">
-                <div class="body">
-                    <a href="payroll.html" class="my_sort_cut text-muted">
-                        <i class="icon-credit-card"></i>
-                        <span>Payroll</span>
+                <div class="body ribbon">
+                    <div class="ribbon-box orange">
+                        {{$funded}}
+                    </div>
+                    <a href="{{route('projectFundedIndex')}}" class="my_sort_cut text-muted">
+                        <i class="icon-calendar"></i>
+                        <span>Funded Projects</span>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="col-6 col-md-4 col-xl-2">
-            <div class="card">
-                <div class="body">
-                    <a href="accounts.html" class="my_sort_cut text-muted">
-                        <i class="icon-calculator"></i>
-                        <span>Accounts</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 col-md-4 col-xl-2">
-            <div class="card">
-                <div class="body">
-                    <a href="report.html" class="my_sort_cut text-muted">
-                        <i class="icon-pie-chart"></i>
-                        <span>Report</span>
-                    </a>
-                </div>
-            </div>
-        </div>
+
+{{--        <div class="col-6 col-md-4 col-xl-2">--}}
+{{--            <div class="card">--}}
+{{--                <div class="body">--}}
+{{--                    <a href="accounts.html" class="my_sort_cut text-muted">--}}
+{{--                        <i class="icon-calculator"></i>--}}
+{{--                        <span>Accounts</span>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-6 col-md-4 col-xl-2">--}}
+{{--            <div class="card">--}}
+{{--                <div class="body">--}}
+{{--                    <a href="report.html" class="my_sort_cut text-muted">--}}
+{{--                        <i class="icon-pie-chart"></i>--}}
+{{--                        <span>Report</span>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
     </div>
 
     <div class="row clearfix">
@@ -187,150 +202,6 @@
         </div>
     </div>
 
-    <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="card">
-                <div class="header">
-                    <h2>Employee Performance</h2>
-                    <ul class="header-dropdown dropdown">
-                        <li class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
-                               role="button" aria-haspopup="true" aria-expanded="false"></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:void(0);">Action</a></li>
-                                <li><a href="javascript:void(0);">Another Action</a></li>
-                                <li><a href="javascript:void(0);">Something else</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-hover js-basic-example dataTable table-custom spacing5 mb-0">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Employee ID</th>
-                            <th>Phone</th>
-                            <th>Join Date</th>
-                            <th>Role</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td class="w60">
-                                <label class="fancy-checkbox">
-                                    <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                    <span></span>
-                                </label>
-                                <div class="avtar-pic w35 bg-red" data-toggle="tooltip" data-placement="top"
-                                     title="Avatar Name"><span>MN</span></div>
-                            </td>
-                            <td>
-                                <div class="font-15">Marshall Nichols</div>
-                                <span class="text-muted">marshall-n@gmail.com</span>
-                            </td>
-                            <td><span>LA-0215</span></td>
-                            <td><span>+ 264-625-2583</span></td>
-                            <td>24 Jun, 2015</td>
-                            <td>Web Designer</td>
-                            <td>
-                                <span class="chart">5,3,-7,8,-6,1,4,9</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="w60">
-                                <label class="fancy-checkbox">
-                                    <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                    <span></span>
-                                </label>
-                                <img src="../assets/images/xs/avatar1.jpg" data-toggle="tooltip"
-                                     data-placement="top" title="Avatar Name" alt="Avatar"
-                                     class="w35 h35 rounded">
-                            </td>
-                            <td>
-                                <div class="font-15">Susie Willis</div>
-                                <span class="text-muted">sussie-w@gmail.com</span>
-                            </td>
-                            <td><span>LA-0216</span></td>
-                            <td><span>+ 264-625-2583</span></td>
-                            <td>28 Jun, 2015</td>
-                            <td>Web Developer</td>
-                            <td>
-                                <span class="chart">5,3,7,8,6,1,4,9</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="w60">
-                                <label class="fancy-checkbox">
-                                    <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                    <span></span>
-                                </label>
-                                <div class="avtar-pic w35 bg-pink" data-toggle="tooltip" data-placement="top"
-                                     title="Avatar Name"><span>MN</span></div>
-                            </td>
-                            <td>
-                                <div class="font-15">Debra Stewart</div>
-                                <span class="text-muted">debra@gmail.com</span>
-                            </td>
-                            <td><span>LA-0218</span></td>
-                            <td><span>+ 264-625-2583</span></td>
-                            <td>21 July, 2015</td>
-                            <td>Web Developer</td>
-                            <td>
-                                <span class="chart">-5,3,7,8,6,1,4,9</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="w60">
-                                <label class="fancy-checkbox">
-                                    <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                    <span></span>
-                                </label>
-                                <img src="../assets/images/xs/avatar2.jpg" data-toggle="tooltip"
-                                     data-placement="top" title="Avatar Name" alt="Avatar"
-                                     class="w35 h35 rounded">
-                            </td>
-                            <td>
-                                <div class="font-15">Francisco Vasquez</div>
-                                <span class="text-muted">francisv@gmail.com</span>
-                            </td>
-                            <td><span>LA-0222</span></td>
-                            <td><span>+ 264-625-2583</span></td>
-                            <td>18 Jan, 2016</td>
-                            <td>Team Leader</td>
-                            <td>
-                                <span class="chart">5,3,7,8,6,1,-4,9</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="w60">
-                                <label class="fancy-checkbox">
-                                    <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                    <span></span>
-                                </label>
-                                <img src="../assets/images/xs/avatar3.jpg" data-toggle="tooltip"
-                                     data-placement="top" title="Avatar Name" alt="Avatar"
-                                     class="w35 h35 rounded">
-                            </td>
-                            <td>
-                                <div class="font-15">Jane Hunt</div>
-                                <span class="text-muted">jane-hunt@gmail.com</span>
-                            </td>
-                            <td><span>LA-0232</span></td>
-                            <td><span>+ 264-625-2583</span></td>
-                            <td>08 Mar, 2016</td>
-                            <td>Android Developer</td>
-                            <td>
-                                <span class="chart">5,-3,7,8,6,-1,4,9</span>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
 @endsection

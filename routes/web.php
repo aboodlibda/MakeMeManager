@@ -41,9 +41,6 @@ Route::post('financier/register',[FinancierController::class,'store'])->name('sa
 Auth::routes();
 Route::group(['as' => 'home'],function (){
     Route::get('/', [HomeController::class, 'index']);
-//    Route::get('/',[HomeController::class,'allProjects']);
-//    Route::get('/',[FundedController::class,'fundedProjects']);
-
 
 });
 

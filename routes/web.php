@@ -92,7 +92,7 @@ Route::get('indexFinanciers',[FinancierController::class,'indexFinanciers'])->na
 
 
 
-Route::group(['prefix'=>'CMS','middleware'=>'auth:admin'],function (){
+Route::group(['prefix'=>'cms','middleware'=>'auth:admin'],function (){
 //    Route::get('/',function (){
 //        return view('CMS.dashboard');
 //    })->name('dashboard');

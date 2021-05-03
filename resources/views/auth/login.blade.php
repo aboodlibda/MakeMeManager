@@ -11,12 +11,12 @@
 
     <link rel="icon" href="{{asset('Dashboard/assets/images/logo.png')}}" type="image/x-icon">
     <!-- VENDOR CSS -->
-    <link rel="stylesheet" href="dashboard/assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="dashboard/assets/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="dashboard/assets/vendor/animate-css/vivify.min.css">
+    <link rel="stylesheet" href="{{asset('dashboard/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard/assets/vendor/animate-css/vivify.min.css')}}">
 
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="assets/css/site.min.css">
+    <link rel="stylesheet" href="{{asset('assets/css/site.min.css')}}">
 
 </head>
 
@@ -102,8 +102,8 @@
 </div>
 <!-- END WRAPPER -->
 
-<script src="assets/bundles/libscripts.bundle.js"></script>
-<script src="assets/bundles/vendorscripts.bundle.js"></script>
-<script src="assets/bundles/mainscripts.bundle.js"></script>
+<script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script>
+<script src="{{asset('assets/bundles/vendorscripts.bundle.js')}}"></script>
+<script src="{{asset('assets/bundles/mainscripts.bundle.js')}}"></script>
 </body>
 </html>

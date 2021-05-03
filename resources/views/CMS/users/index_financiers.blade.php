@@ -1,7 +1,7 @@
 @extends('CMS.parent')
 
 @section('title')
-    {{'Projects'}}
+    {{'Financiers'}}
 @endsection
 
 @section('head')

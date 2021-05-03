@@ -72,18 +72,14 @@ Route::get('my-projects',[ProjectController::class,'myProjects'])->name('myProje
 Route::get('my-funded-projects',[FundedController::class,'myFundedProjects'])->name('myFundedProjects');
 Route::get('entrepreneurs',[HomeController::class,'entrepreneurs'])->name('entrepreneurs');
 Route::get('financiers',[FinancierController::class,'index'])->name('financiers.index');
-Route::get('indexProjects',[AdminController::class,'indexProjects'])->name('projectIndex');
-Route::get('indexFundedProjects',[AdminController::class,'indexFundedProjects'])->name('projectFundedIndex');
 
 
 //////////////////////////// Show Users List In CMS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-Route::get('indexUsers',[UserController::class,'indexUsers'])->name('indexUsers');
 
 
 
 //////////////////////////// Financing Project From Financier \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 Route::post('financing',[FinancierController::class,'financeProject'])->name('financeProject');
-Route::get('indexFinanciers',[FinancierController::class,'indexFinanciers'])->name('indexFinanciers');
 
 
 
@@ -97,6 +93,10 @@ Route::group(['prefix'=>'cms','middleware'=>'auth:admin'],function (){
 //        return view('CMS.dashboard');
 //    })->name('dashboard');
     Route::get('/',[AdminController::class,'dashboard'])->name('dashboard');
+    Route::get('/indexFinanciers',[FinancierController::class,'indexFinanciers'])->name('indexFinanciers');
+    Route::get('/indexUsers',[UserController::class,'indexUsers'])->name('indexUsers');
+    Route::get('indexFundedProjects',[AdminController::class,'indexFundedProjects'])->name('projectFundedIndex');
+    Route::get('indexProjects',[AdminController::class,'indexProjects'])->name('projectIndex');
 
 
 });

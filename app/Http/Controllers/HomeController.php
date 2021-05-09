@@ -7,6 +7,9 @@ use App\Models\Funded;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Psy\Util\Json;
 
 class HomeController extends Controller
 {
@@ -47,6 +50,28 @@ class HomeController extends Controller
     }
 
 
+//    public function getData ($name)
+//    {
+//        return User::where('name',$name);
+//    }
+
+    public function send (Request $req)
+    {
+        dd($req);
+        $user = new User();
+        $user->name=$req->get('name');
+        $user->email=$req->get('email');
+        $user->password=Hash::make($req->get('password'));
+        $Result = $user->save();
+        if ($Result)
+        {
+//            return DB::table('users')->latest('name')->first();
+
+            return ('Operation Success');
+        }else{
+            return ('Operation Failed');
+        }
+    }
 
 
 }

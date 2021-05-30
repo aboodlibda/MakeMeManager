@@ -7,8 +7,8 @@
 
     <div class="hero">
         <div class="hero-slide">
-            <div class="img overlay" style="background-image: url(&#x27;MMM/images/hero_bg_1.jpg&#x27;)"></div>
-            <div class="img overlay" style="background-image: url(&#x27;MMM/images/hero_2.jpg&#x27;)"></div>
+            <div class="img overlay" style="background-image: url(&#x27;{{asset('frontImages/'.$front->home_page_image)}}&#x27;)"></div>
+{{--            <div class="img overlay" style="background-image: url(&#x27;MMM/images/hero_2.jpg&#x27;)"></div>--}}
         </div>
         <div class="container">
             <div class="row justify-content-center align-items-center">

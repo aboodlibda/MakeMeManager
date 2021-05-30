@@ -607,12 +607,19 @@
                     <li><a href="{{route('indexFinanciers')}}"><i class="icon-user"></i><span>Financiers</span></a></li>
                     <li><a href="{{route('projectIndex')}}"><i class="icon-grid"></i><span>Projects</span></a></li>
                     <li><a href="{{route('projectFundedIndex')}}"><i class="icon-grid"></i><span>Funded Projects</span></a></li>
-{{--                    <li><a href="activities.html"><i class="icon-equalizer"></i><span>Activities</span></a></li>--}}
-{{--                    <li><a href="holidays.html"><i class="icon-flag"></i><span>Holidays</span></a></li>--}}
-{{--                    <li><a href="events.html"><i class="icon-calendar"></i><span>Events</span></a></li>--}}
-{{--                    <li><a href="payroll.html"><i class="icon-credit-card"></i><span>Payroll</span></a></li>--}}
-{{--                    <li><a href="accounts.html"><i class="icon-wallet"></i><span>Accounts</span></a></li>--}}
-{{--                    <li><a href="report.html"><i class="icon-bar-chart"></i><span>Report</span></a></li>--}}
+                    <li>
+                        <a href="" class="has-arrow"><i class="icon-settings"></i><span>Front End Elements</span></a>
+                        <ul>
+                            <li><a href="{{route('homePage')}}">Home Page</a></li>
+                            <li><a href="{{route('projectsPage')}}">Projects Page</a></li>
+                            <li><a href="index5.html">Financiers Page</a></li>
+                            <li><a href="index6.html">Entrepreneurs Page</a></li>
+                            <li><a href="index7.html">About Pasge</a></li>
+                            <li><a href="{{route('howItWorkPage')}}">How It Work Page</a></li>
+
+                        </ul>
+                    </li>
+
                 </ul>
             </nav>
         </div>

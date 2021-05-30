@@ -9,7 +9,7 @@
 @section('content')
 
 
-    <div class="hero page-inner" style="background-image: url(&#x27;dashboard/assets/images/projects.jpg&#x27;)">
+    <div class="hero page-inner" style="background-image: url(&#x27;{{asset('frontImages/'.$front->projects_page_image)}}&#x27;)">
         <div class="container">
             <div class="row justify-content-center align-items-center" >
                 <div class="col-lg-9 text-center mt-5">

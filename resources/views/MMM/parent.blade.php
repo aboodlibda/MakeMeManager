@@ -43,10 +43,8 @@
                 <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
                     <li><a href="{{route('home')}}">Home</a></li>
                     <li><a href="{{route('projects.index')}}">Projects</a></li>
-                    <li><a href="{{route('financiers.index')}}">Financiers</a></li>
-                    <li><a href="{{route('entrepreneurs')}}">Entrepreneurs</a></li>
                     <li><a href="{{route('about')}}">About</a></li>
-{{--                    <li><a href="contact.html">Contact Us</a></li>--}}
+                    <li><a href="{{route('how-it-work')}}">How It Work</a></li>
 
                     @if(Auth::guard('financier')->check())
                         <li class="has-children">

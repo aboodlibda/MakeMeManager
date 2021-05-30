@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Financier;
+use App\Models\Front;
 use App\Models\Funded;
 use App\Models\Project;
 use App\Models\User;
@@ -34,7 +35,8 @@ class HomeController extends Controller
         $funded = Funded::paginate(9);
         $financiers = Financier::paginate(9);
         $users = User::paginate(9);
-        return view('MMM.index',compact('projects','funded','financiers','users'));
+        $front =  Front::all()->last();
+        return view('MMM.index',compact('projects','funded','financiers','users','front'));
     }
 
 //    public function allProjects ()

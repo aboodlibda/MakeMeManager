@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Front;
 use
 
 
@@ -25,7 +26,8 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::latest()->paginate(10);
-        return view('MMM.projects.projects',compact('projects'));
+        $front = Front::all()->last();
+        return view('MMM.projects.projects',compact('projects','front'));
     }
 
     /**
